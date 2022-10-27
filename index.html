@@ -11,6 +11,7 @@
             display: grid;
             row-gap: 20px;
         }
+
         .main {
             display: flex;
             justify-content: center;
@@ -75,9 +76,13 @@
                     <label class="convector__label" for="line_height_px_answer">Line Height:</label>
                     <input name="line_height_px_answer" id="line_height_px_answer" type="text">
 
+                    <label class="convector__label" for="css_style">Css Style:</label>
+                    <textarea onclick="this.select()" name="css_style" id="css_style" type="text"></textarea>
+                    <input onclick="clipboard()" type="button" value="Copy">
                 </fieldset>
             </form>
-            <p>Ссылка на репозиторий: <a href="https://github.com/TIPDMR/px-to-rem-calc" target="_blank" class="convector__copy">https://github.com/TIPDMR/px-to-rem-calc</a></p>
+            <p>Ссылка на репозиторий: <a href="https://github.com/TIPDMR/px-to-rem-calc" target="_blank"
+                    class="convector__copy">https://github.com/TIPDMR/px-to-rem-calc</a></p>
         </section>
     </main>
     <script>
@@ -92,8 +97,13 @@
             form.elements.font_size_px_answer.value = fontSizePxAnswer + "rem";
             form.elements.line_height_px_answer.value = lineHeightPxAnswer.toFixed(3);
 
+            form.elements.css_style.value = "font-size: " + fontSizePxAnswer + "rem;\r\n" + "line-height: " + lineHeightPxAnswer + ";";
         }
-
+        function clipboard(event) {
+            var copyText = document.getElementById("css_style");
+            copyText.select();
+            document.execCommand("copy");
+        }
         form.addEventListener('change', convector);
         form.addEventListener('input', convector);
         form.addEventListener('click', convector);
