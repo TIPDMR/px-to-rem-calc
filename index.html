@@ -97,7 +97,7 @@
             form.elements.font_size_px_answer.value = fontSizePxAnswer + "rem";
             form.elements.line_height_px_answer.value = lineHeightPxAnswer.toFixed(3);
 
-            form.elements.css_style.value = "font-size: " + fontSizePxAnswer + "rem;\r\n" + "line-height: " + lineHeightPxAnswer + ";";
+            form.elements.css_style.value = "font-size: " + fontSizePxAnswer + "rem;\r\n" + "line-height: " + lineHeightPxAnswer.toFixed(3) + ";";
         }
         function clipboard(event) {
             var copyText = document.getElementById("css_style");
